@@ -25,21 +25,6 @@
     └── audio/anthem.mp3 # 院歌
 ```
 
-## 本地預覽
-
-因為使用 ES Module 與相對路徑資源，需要起一個靜態伺服器（直接雙擊 HTML 會被瀏覽器擋）：
-
-```bash
-python -m http.server 8000
-# 開啟 http://localhost:8000
-```
-
-## 部署
-
-純靜態網站，任何靜態主機皆可（GitHub Pages、Netlify、Cloudflare Pages…）。整個資料夾原樣上傳即可。
-
-留言牆使用 Firebase RTDB（設定在 `js/blessing.js`，Web API Key 屬公開的用戶端設定）；正式公開前建議在 Firebase Console 設定資料庫安全規則（欄位字數上限、寫入頻率限制）。
-
 ## 技術
 
 原生 HTML / CSS / JavaScript，無框架、無建置流程。字體：Noto Serif TC・Noto Sans TC・ZCOOL QingKe HuangYou（Google Fonts）。
