@@ -1155,6 +1155,12 @@ body::before{
     .timeline-item:nth-child(n){--sx:0}
     .timeline::after{left:16px;transform:none}
     #intro,#tabs{scroll-margin-top:54px}
+    /* 暗色面板滿版出血：解除 max-width 鉗制、出血量對齊 wrapper 的 1rem 內距 */
+    #tab-history,#tab-blessing{max-width:none;margin:0 -1rem}
+    #tab-history{padding:2.5rem 1.2rem 3rem}
+    /* 收掉分頁列下方的米色空帶；亮色的地圖分頁自己補回呼吸空間 */
+    .tab-nav{margin-bottom:0}
+    #tab-map{padding-top:1.8rem}
   }
 
   /* — 動效偏好 — */
