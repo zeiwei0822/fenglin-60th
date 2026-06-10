@@ -1,0 +1,14 @@
+# 本地備份與工具，不進版控
+backup/
+
+# 系統雜訊
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Python
+__pycache__/
+*.pyc
+
+# 本地工具設定
+.claude/

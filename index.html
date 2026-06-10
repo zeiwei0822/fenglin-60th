@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>風嶺百貌・六十週年紀念</title>
+<meta name="description" content="國防大學理工學院創校六十週年紀念網站——風嶺百貌。六十載歲月，山川為證，師生情長。">
+<meta name="theme-color" content="#1a140e">
+<meta property="og:title" content="風嶺百貌・六十週年紀念">
+<meta property="og:description" content="國防大學理工學院創校六十週年紀念網站。六十載歲月，風嶺依舊靜立。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a140e'/%3E%3Ccircle cx='32' cy='32' r='23' fill='none' stroke='%23B8912A' stroke-opacity='0.55'/%3E%3Ctext x='32' y='43' font-size='30' text-anchor='middle' fill='%23D4A843' font-family='serif'%3E%E9%A2%A8%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <img class="pre-logo" src="assets/img/logo.webp" alt="院徽">
+  <div class="pre-title">風嶺百貌</div>
+  <div class="pre-bar-wrap"><div class="pre-bar" id="preBar"></div></div>
+  <div class="pre-sub">1966 ─ 2026</div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div id="progress-bar"></div>
+
+<!-- BACK TO TOP -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
+
+<!-- ANTHEM PLAYER -->
+<audio id="anthemAudio" src="assets/audio/anthem.mp3" preload="none" loop></audio>
+<button id="anthem-btn" aria-label="播放院歌" title="院歌">
+  <span class="anthem-ring" aria-hidden="true"></span>
+  <span class="anthem-icon" aria-hidden="true">♪</span>
+</button>
+
+
+<!-- ===== TOP NAV ===== -->
+<nav id="topNav" class="top-nav">
+  <div class="top-nav-inner">
+    <span class="top-nav-logo">風嶺百貌</span>
+    <div class="top-nav-links">
+      <a href="#intro" class="top-nav-link">關於</a>
+      <a href="#tabs" class="top-nav-link" onclick="switchTab('history', document.querySelector('.tab-btn[onclick*=history]'))">歷史沿革</a>
+      <a href="#tabs" class="top-nav-link" onclick="switchTab('map', document.querySelector('.tab-btn[onclick*=map]'))">校園地圖</a>
+      <a href="#tabs" class="top-nav-link" onclick="switchTab('blessing', document.querySelector('.tab-btn[onclick*=blessing]'))">六十週年祝福</a>
+      <a href="#tabs" class="top-nav-link" onclick="switchTab('blessing', document.querySelector('.tab-btn[onclick*=blessing]')); setTimeout(()=>{document.getElementById('blessingWallAnchor').scrollIntoView({behavior:'smooth'})},350)">留言牆</a>
+    </div>
+  </div>
+</nav>
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-mist hero-mist-1"></div>
+  <div class="hero-mist hero-mist-2"></div>
+  <div class="hero-side hero-side-l" aria-hidden="true">風嶺百貌・歲月留聲</div>
+  <div class="hero-side hero-side-r" aria-hidden="true">山高水長・弦歌不輟</div>
+  <canvas id="particles"></canvas>
+  <svg class="hero-mountain" viewBox="0 0 1440 280" preserveAspectRatio="none">
+    <path d="M0,280 L0,200 L120,165 L200,185 L320,110 L420,148 L520,72 L600,105 L680,42 L760,82 L860,22 L940,62 L1040,90 L1120,52 L1200,112 L1280,82 L1360,130 L1440,100 L1440,280 Z" fill="rgba(184,145,42,0.6)"/>
+    <path d="M0,280 L0,235 L100,218 L180,228 L280,178 L380,198 L480,152 L560,170 L660,132 L740,155 L840,112 L920,142 L1020,160 L1100,132 L1180,160 L1260,142 L1340,168 L1440,152 L1440,280 Z" fill="rgba(30,22,10,0.95)"/>
+    <path d="M0,280 L0,258 L200,245 L400,252 L600,238 L800,248 L1000,235 L1200,244 L1440,236 L1440,280 Z" fill="rgba(26,20,14,1)"/>
+  </svg>
+  <div class="hero-content">
+    <div class="hero-year" role="img" aria-label="六十">
+      <svg class="hero-year-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="flGold" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#D4A843"/>
+            <stop offset="0.5" stop-color="#F0D98C"/>
+            <stop offset="1" stop-color="#B8912A"/>
+          </linearGradient>
+        </defs>
+        <path pathLength="100" stroke-width="15" d="M98,16 Q104,26 106,38"/>
+        <path pathLength="100" stroke-width="16" d="M28,62 Q100,52 174,58"/>
+        <path pathLength="100" stroke-width="15" d="M88,84 Q76,128 36,162"/>
+        <path pathLength="100" stroke-width="15" d="M116,84 Q140,124 168,150"/>
+        <path pathLength="100" stroke-width="16" d="M226,94 Q300,86 374,92"/>
+        <path pathLength="100" stroke-width="16" d="M300,26 Q302,100 298,178"/>
+      </svg>
+    </div>
+    <h1 class="hero-title"><span id="typeTarget"></span><span class="typewriter" id="typeCursor">|</span></h1>
+    <p class="hero-subtitle">國防大學理工學院六十週年紀念</p>
+    <div class="hero-divider"></div>
+    <p class="hero-tagline">六十載歲月，風嶺依舊靜立<br>山川為證，師生情長</p>
+  </div>
+  <div class="scroll-hint">向下探索</div>
+</div>
+
+<!-- ===== STATS ===== -->
+<div class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-item fade-in">
+      <div class="stat-num" data-target="60">0</div>
+      <div class="stat-unit">年</div>
+      <div class="stat-label">創校歲月</div>
+    </div>
+    <div class="stat-item fade-in">
+      <div class="stat-num" data-target="64">0</div>
+      <div class="stat-unit">公頃</div>
+      <div class="stat-label">校區面積</div>
+    </div>
+    <div class="stat-item fade-in">
+      <div class="stat-num" data-target="6">0</div>
+      <div class="stat-unit">個</div>
+      <div class="stat-label">研究所系組</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== INTRO ===== -->
+<div class="intro-strip" id="intro">
+  <div class="intro-watermark">風嶺</div>
+  <div class="intro-strip-inner">
+    <p class="intro-line fade-in">自民國<strong>五十五年</strong>創立以來</p>
+    <p class="intro-line fade-in">國防大學理工學院紮根於青山之間</p>
+    <p class="intro-line fade-in">培育了無數<strong>軍事科技</strong>菁英</p>
+    <div class="intro-sep"></div>
+    <p class="intro-sub fade-in">六十年，不只是時光的積累<br>更是每一位<strong>師生、校友</strong>共同刻寫的故事</p>
+  </div>
+</div>
+
+<!-- ===== TABS ===== -->
+<div class="tabs-outer" id="tabs">
+<div class="tabs-wrapper">
+  <nav class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('history',this)">歷史沿革</button>
+    <button class="tab-btn" onclick="switchTab('map',this)">校園景色地圖</button>
+    <button class="tab-btn" onclick="switchTab('blessing',this)">六十週年祝福</button>
+    <button class="tab-btn" onclick="switchTab('blessing',this);setTimeout(()=>{document.getElementById('blessingWallAnchor').scrollIntoView({behavior:'smooth'})},300)">留言牆</button>
+    <span class="tab-indicator" id="tabIndicator" aria-hidden="true"></span>
+  </nav>
+
+  <!-- HISTORY -->
+  <div id="tab-history" class="tab-panel active">
+    <div class="section-label">歷史沿革</div>
+    <h2 class="section-heading">六十年的足跡</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">1966</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content"><h3>中正理工學院創立</h3><p>民國五十五年，奉國防部令擴編更名為「中正理工學院」，選定桃園市大溪區員樹林、大漢溪畔中正嶺為新校址，奠定六十年基業。</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content"><h3>三校合併・遷入中正嶺</h3><p>民國五十八年整編聯勤測量學校及海軍工程學院，同年十二月正式遷入桃園大溪現址，成為國內唯一培養國防科技專才的最高軍事學府。</p></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1969</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1970</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content"><h3>研究所設立</h3><p>民國五十九年成立物理研究所碩士班，民國六十九年更設立博士班，奠定學術研究深厚根基，持續提升國防科技研發能量。</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content"><h3>整併國防大學</h3><p>民國八十九年，與三軍大學、國防管理學院、國防醫學院合併為國防大學，更名為「國防大學中正理工學院」，邁向新世紀。</p></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2000</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2006</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content"><h3>更名理工學院</h3><p>民國九十五年配合軍事院校整併政策，更名為「國防大學理工學院」，校區正式命名為「中正嶺校區」，沿用至今。</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content"><h3>六十週年院慶</h3><p>民國一一五年，中正理工學院創立六十週年。六十載薪火相傳，培育無數國防科技棟樑，風嶺精神永續長存。</p></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAMPUS MAP -->
+  <div id="tab-map" class="tab-panel">
+    <div class="section-label">校園景色地圖</div>
+    <h2 class="section-heading">中正嶺校區</h2>
+    <p class="map-hint">📍 點擊金色標記查看景色照片 · 桃園市大溪區石園路75號</p>
+
+    <div class="map-wrap" id="mapWrap">
+      <div class="map-tooltip" id="mapTooltip"></div>
+
+      <div class="map-controls">
+        <button class="map-ctrl-btn" onclick="mapZoom(0.2)" title="放大">＋</button>
+        <button class="map-ctrl-btn" onclick="mapZoom(-0.2)" title="縮小">－</button>
+        <button class="map-ctrl-btn" onclick="mapReset()" title="重設">⊙</button>
+        <span class="map-ctrl-hint">拖曳平移・滾輪縮放</span>
+      </div>
+
+      <div class="map-viewport" id="mapViewport">
+        <div class="map-img-container" id="mapContainer" style="position:absolute;top:0;left:0;transform-origin:0 0;">
+
+          <img data-src="assets/img/campus-map.webp" alt="中正嶺校區地圖" class="map-real-img" style="display:block;max-width:none;image-rendering:-webkit-optimize-contrast;image-rendering:high-quality;">
+
+          <!-- Hotspots -->
+          <div style="position:absolute;inset:0;pointer-events:none;">
+
+            <div class="hs" style="left:34%;top:33%"
+              data-name="中正堂"
+              data-desc="學院重要集會與典禮的舉辦場所，莊嚴的舞台見證無數開學典禮與活動"
+              data-gallery='[{"src":"assets/img/hall-1.webp","title":"開學典禮","desc":"國防大學理工學院開學典禮，學員生整齊肅立，共同迎接新學年的開始"},{"src":"assets/img/hall-2.webp","title":"風嶺軍樂隊音樂成果發表會","desc":"113年風嶺軍樂隊音樂成果發表會，隊員齊聚中正堂舞台，以音樂展現四季努力的成果"}]'>
+              <div class="hs-dot"></div>
+              <div class="hs-ring"></div>
+            </div>
+
+            <div class="hs" style="left:40%;top:43%"
+              data-name="精神堡壘"
+              data-desc="校園精神象徵，塔頂懸掛院徽，是中正嶺最具代表性的地標"
+              data-img="assets/img/fortress.webp">
+              <div class="hs-dot"></div>
+              <div class="hs-ring"></div>
+            </div>
+
+            <div class="hs" style="left:33%;top:56%"
+              data-name="操場"
+              data-desc="設有標準跑道的操場，是每日晨操與體能訓練的場所，也是學員生最深刻的記憶之一"
+              data-gallery='[{"src":"assets/img/playground-1.webp","title":"授徽典禮","desc":"授徽典禮上，新生身著戎裝、高舉敬禮，胸前別上屬於自己的第一枚院徽，從此，風嶺成為他們最驕傲的起點"},{"src":"assets/img/playground-2.webp","title":"旗隊列陣","desc":"校旗隊整齊列陣於操場，院旗隨國旗迎風飄揚，展現中正嶺嚴謹紀律與軍人榮耀的精神風采"}]'>
+              <div class="hs-dot"></div>
+              <div class="hs-ring"></div>
+            </div>
+
+            <div class="hs" style="left:52%;top:57%"
+              data-name="學生第一餐廳"
+              data-desc="學員生日常用餐與活動的重要場所，承載無數相聚時光與青春記憶"
+              data-gallery='[{"src":"assets/img/dining-1.webp","title":"風嶺舞會","desc":"璀璨燈光下，學員生與親友共度難忘的風嶺舞會，笑聲與歡呼交織成中正嶺最閃耀的青春記憶"},{"src":"assets/img/dining-2.webp","title":"校旗隊釘牌儀式","desc":"國防大學理工學院校旗隊釘牌儀式，全體隊員與長官合影，握拳表達對榮耀傳承的堅定意志"},{"src":"assets/img/dining-3.webp","title":"社團博覽會","desc":"113學年度上學期社團博覽會，管樂社於學生第一餐廳舞台演出，為新生展示豐富的社團文化"}]'>
+              <div class="hs-dot"></div>
+              <div class="hs-ring"></div>
+            </div>
+
+            <div class="hs" style="left:67%;top:50%"
+              data-name="學生四中隊"
+              data-desc="學員生生活起居的核心單位，牆上「自信」「堅持」四字道盡中正嶺的精神底蘊"
+              data-img="assets/img/squadron.webp">
+              <div class="hs-dot"></div>
+              <div class="hs-ring"></div>
+            </div>
+
+            <div class="hs" style="left:48%;top:73%"
+              data-name="杜鵑花"
+              data-desc="每逢春季，校園道路兩側杜鵑盛開，粉紅花海綿延，是學員生記憶中最美麗的校園風景"
+              data-img="assets/img/azalea.jpg">
+              <div class="hs-dot"></div>
+              <div class="hs-ring"></div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="map-legend">
+        <span class="legend-item"><span class="legend-dot gold"></span>點擊查看照片</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLESSING -->
+  <div id="tab-blessing" class="tab-panel">
+    <img class="blessing-logo-bg" style="border-radius:50%;overflow:hidden;" src="assets/img/logo.webp" alt="">
+    <div class="blessing-inner">
+    <h2 class="blessing-main">薪火相傳，<em>弦歌不輟</em><br>山高水長，<em>繼往開來</em></h2>
+      <div class="blessing-divider"><span></span><i></i><span></span></div>
+      <p class="blessing-body">
+        六十年來，無數師生在風嶺這片土地上留下足跡<br>
+        學院以文武兼備之精神，培育國防科技棟樑<br>
+        願未來的六十年，風嶺依舊，精神長存<br>
+        讓每一位走過這裡的人，都留下最美的記憶
+      </p>
+      <p class="blessing-date">國防大學理工學院　民國一一五年　創校六十週年</p>
+
+      <!-- 留言牆 -->
+      <div class="blessing-wall-wrap">
+        <div id="blessingWallAnchor" class="blessing-wall-title">留下你的祝福</div>
+        <div class="bless-total" id="blessTotal"></div>
+        <div class="bless-form">
+          <input id="blessingName" class="bless-input" placeholder="姓名 *" maxlength="20">
+          <input id="blessingRole" class="bless-input" placeholder="身份（如：第XX屆校友）" maxlength="30">
+          <textarea id="blessingText" class="bless-input bless-textarea" placeholder="寫下你對風嶺的祝福或記憶 *" maxlength="150"></textarea>
+          <span class="bless-count" id="blessCount">0 / 150</span>
+          <button class="bless-submit" onclick="submitBlessing()">送出祝福 ✦</button>
+        </div>
+        <div id="blessingWall"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-ornament" aria-hidden="true"><span></span>❖<span></span></div>
+  <p class="footer-title">風嶺百貌</p>
+  <p class="footer-years">1966 ─ 2026</p>
+  <p>國防大學理工學院　CHUNG CHENG INSTITUTE OF TECHNOLOGY, NDU, ROC<br>風嶺百貌　六十週年網頁設計競賽參賽作品</p>
+</div>
+
+<script src="js/main.js"></script>
+
+<!-- ===== LIGHTBOX MODAL ===== -->
+<div id="mapLightbox" class="lightbox-overlay" onclick="closeLightbox(event)">
+  <div class="lightbox-box">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <div class="lightbox-img-wrap">
+      <img id="lightboxImg" src="" alt="">
+    </div>
+    <div class="lightbox-caption">
+      <h3 id="lightboxTitle"></h3>
+      <p id="lightboxDesc"></p>
+    </div>
+    <div class="lightbox-footer">
+      <span id="lightboxNoPhoto" style="display:none">
+        📷 尚無照片，歡迎提供
+      </span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== FIREBASE + 留言牆 ===== -->
+<script type="module" src="js/blessing.js"></script>
+
+</body>
+</html>
