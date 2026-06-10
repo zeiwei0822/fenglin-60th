@@ -1096,9 +1096,20 @@ body::before{
   .stat-item::after{bottom:10px;right:10px;border-left:none;border-top:none}
   .stat-item:hover::before,.stat-item:hover::after{border-color:rgba(184,145,42,.6)}
 
-  /* — 分頁列：滑動指示條 + 避開固定導覽列 — */
-  .tab-nav{top:60px}
-  .tab-btn.active{border-bottom-color:transparent}
+  /* — 分頁列：深色玻璃質感、出血對齊暗色面板、滑動指示條 — */
+  .tab-nav{
+    top:60px;
+    margin:0 -2rem;
+    padding:0 2rem;
+    background:rgba(26,20,14,.95);
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(184,145,42,.25);
+  }
+  .tab-btn{color:rgba(250,247,242,.5)}
+  .tab-btn:hover{color:var(--warm-white)}
+  .tab-btn.active{color:var(--gold-light);border-bottom-color:transparent}
+  #tab-map{padding-top:2rem}
   .tab-indicator{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-light));box-shadow:0 0 10px rgba(184,145,42,.45);transition:transform .4s cubic-bezier(.22,.61,.36,1),width .4s cubic-bezier(.22,.61,.36,1);pointer-events:none}
 
   /* — 時間軸：左右滑入、hover 發光、2026 徽記 — */
@@ -1151,16 +1162,14 @@ body::before{
   .top-nav-links::-webkit-scrollbar,.tab-nav::-webkit-scrollbar{display:none}
   @media(max-width:900px){.hero-side{display:none}}
   @media(max-width:768px){
-    .tab-nav{top:48px}
+    .tab-nav{top:48px;margin:0 -1rem;padding:0 1rem;max-width:none}
     .timeline-item:nth-child(n){--sx:0}
     .timeline::after{left:16px;transform:none}
     #intro,#tabs{scroll-margin-top:54px}
     /* 暗色面板滿版出血：解除 max-width 鉗制、出血量對齊 wrapper 的 1rem 內距 */
     #tab-history,#tab-blessing{max-width:none;margin:0 -1rem}
     #tab-history{padding:2.5rem 1.2rem 3rem}
-    /* 收掉分頁列下方的米色空帶；亮色的地圖分頁自己補回呼吸空間 */
-    .tab-nav{margin-bottom:0}
-    #tab-map{padding-top:1.8rem}
+    #tab-map{padding-top:1.5rem}
   }
 
   /* — 動效偏好 — */
