@@ -126,16 +126,16 @@
 <!-- ===== TABS ===== -->
 <div class="tabs-outer" id="tabs">
 <div class="tabs-wrapper">
-  <nav class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab('history',this)">歷史沿革</button>
-    <button class="tab-btn" onclick="switchTab('map',this)">校園景色地圖</button>
-    <button class="tab-btn" onclick="switchTab('blessing',this)">六十週年祝福</button>
-    <button class="tab-btn" onclick="switchTab('blessing',this);setTimeout(()=>{document.getElementById('blessingWallAnchor').scrollIntoView({behavior:'smooth'})},300)">留言牆</button>
+  <nav class="tab-nav" role="tablist" aria-label="網站主要內容">
+    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-history" onclick="switchTab('history',this)">歷史沿革</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-map" onclick="switchTab('map',this)">校園景色地圖</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-blessing" onclick="switchTab('blessing',this)">六十週年祝福</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-blessing" onclick="switchTab('blessing',this);setTimeout(()=>{document.getElementById('blessingWallAnchor').scrollIntoView({behavior:'smooth'})},300)">留言牆</button>
     <span class="tab-indicator" id="tabIndicator" aria-hidden="true"></span>
   </nav>
 
   <!-- HISTORY -->
-  <div id="tab-history" class="tab-panel active">
+  <div id="tab-history" class="tab-panel active" role="tabpanel">
     <div class="section-label">歷史沿革</div>
     <h2 class="section-heading">六十年的足跡</h2>
     <div class="timeline">
@@ -173,7 +173,7 @@
   </div>
 
   <!-- CAMPUS MAP -->
-  <div id="tab-map" class="tab-panel">
+  <div id="tab-map" class="tab-panel" role="tabpanel">
     <div class="section-label">校園景色地圖</div>
     <h2 class="section-heading">中正嶺校區</h2>
     <p class="map-hint">📍 點擊金色標記查看景色照片 · 桃園市大溪區石園路75號</p>
@@ -256,7 +256,7 @@
   </div>
 
   <!-- BLESSING -->
-  <div id="tab-blessing" class="tab-panel">
+  <div id="tab-blessing" class="tab-panel" role="tabpanel">
     <img class="blessing-logo-bg" style="border-radius:50%;overflow:hidden;" src="assets/img/logo.webp" alt="">
     <div class="blessing-inner">
     <h2 class="blessing-main">薪火相傳，<em>弦歌不輟</em><br>山高水長，<em>繼往開來</em></h2>

@@ -1,15 +1,28 @@
 // 風嶺百貌・六十週年紀念 — 主要互動腳本
 // ── Preloader ──
-window.addEventListener('load', () => {
+let introStarted = false;
+function finishPreloader() {
   const bar = document.getElementById('preBar');
+  const pl = document.getElementById('preloader');
   if (bar) bar.style.width = '100%';
-  setTimeout(() => {
-    const pl = document.getElementById('preloader');
-    if (pl) pl.classList.add('hide');
-    document.body.classList.add('loaded');
+  if (pl) {
+    pl.classList.add('hide');
+    setTimeout(() => { pl.style.display = 'none'; }, 850);
+  }
+  document.body.classList.add('loaded');
+  if (!introStarted) {
+    introStarted = true;
     startTypewriter();
-  }, 1800);
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const bar = document.getElementById('preBar');
+  if (bar) bar.style.width = '92%';
+  setTimeout(finishPreloader, 1700);
+  setTimeout(finishPreloader, 2600);
 });
+window.addEventListener('load', () => setTimeout(finishPreloader, 250));
 
 // ── Typewriter ──
 function startTypewriter() {
@@ -79,10 +92,17 @@ window.addEventListener('scroll', () => {
 
 // ── Tabs ──
 function switchTab(name, btn) {
+  const panel = document.getElementById('tab-' + name);
+  if (!panel || !btn) return;
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + name).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+  });
+  panel.classList.add('active');
   btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
+  centerActiveTab(btn);
   moveTabIndicator(btn);
   setTimeout(() => {
     document.querySelectorAll('#tab-' + name + ' .timeline-item, #tab-' + name + ' .fade-in')
@@ -101,6 +121,12 @@ function moveTabIndicator(btn) {
   if (!ind || !btn || !btn.classList.contains('tab-btn')) return;
   ind.style.width = btn.offsetWidth + 'px';
   ind.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+}
+function centerActiveTab(btn) {
+  const nav = btn && btn.closest('.tab-nav');
+  if (!nav || nav.scrollWidth <= nav.clientWidth) return;
+  const left = btn.offsetLeft - (nav.clientWidth - btn.offsetWidth) / 2;
+  nav.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
 }
 window.addEventListener('load', () => setTimeout(() => moveTabIndicator(document.querySelector('.tab-btn.active')), 120));
 window.addEventListener('resize', () => moveTabIndicator(document.querySelector('.tab-btn.active')));

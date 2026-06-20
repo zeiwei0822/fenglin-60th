@@ -1177,4 +1177,97 @@ body::before{
     *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
     html{scroll-behavior:auto}
   }
+/* ══════════ 2026 REFINEMENT PASS ══════════ */
+:root{--nav-h:60px;--nav-h-mobile:48px}
+body{background:linear-gradient(180deg,#1a140e 0 100svh,var(--cream) 100svh)}
+#preloader.hide{pointer-events:none}
+#preloader{animation:preloaderAutoExit .7s ease 2.8s forwards}
+#preloader.hide{animation:none}
+@keyframes preloaderAutoExit{99%{opacity:0;visibility:hidden;pointer-events:none}100%{opacity:0;visibility:hidden;pointer-events:none;z-index:-1}}.top-nav{isolation:isolate}
+.top-nav::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(184,145,42,.35),transparent);opacity:0;transition:opacity .35s ease;pointer-events:none}
+.top-nav.scrolled::after{opacity:1}
+.top-nav-links,.tab-nav{overscroll-behavior-x:contain}
 
+.stats-section{background:linear-gradient(180deg,#1a140e 0%,#2c2416 100%)}
+.stats-grid{border:1px solid rgba(184,145,42,.16);box-shadow:0 24px 70px rgba(0,0,0,.18)}
+.stat-item{min-height:142px}
+
+.intro-strip{background:linear-gradient(180deg,#efe7d5 0%,#e7dcc5 100%)}
+.intro-strip::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(184,145,42,.16),transparent 48%);pointer-events:none}
+
+.tab-nav{box-shadow:0 12px 28px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.035)}
+.tab-nav::after{content:'';position:absolute;left:2rem;right:2rem;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,67,.45),transparent);pointer-events:none}
+.tab-btn{min-height:54px;display:flex;align-items:center;justify-content:center}
+
+#tab-history,#tab-blessing{position:relative;isolation:isolate;background:radial-gradient(circle at 50% 0%,rgba(184,145,42,.12),transparent 34rem),linear-gradient(180deg,#2c2416 0%,#1f190f 100%)}
+#tab-history::before,#tab-blessing::before{content:'';position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(250,247,242,.025) 1px,transparent 1px),linear-gradient(0deg,rgba(250,247,242,.018) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(180deg,rgba(0,0,0,.55),transparent 68%);pointer-events:none;z-index:-1}
+#tab-history{padding-top:4.2rem}
+#tab-blessing{padding-top:5.2rem}
+.section-label{align-items:center}
+.section-heading{line-height:1.35}
+
+.map-wrap{padding:1rem;background:linear-gradient(180deg,rgba(237,229,208,.75),rgba(237,229,208,.42));border:1px solid rgba(44,36,22,.12);box-shadow:0 24px 60px rgba(44,36,22,.14)}
+.map-viewport{border:1px solid rgba(44,36,22,.16)}
+.map-hint{margin-bottom:1.35rem}
+
+.blessing-wall-wrap{max-width:760px;margin-left:auto;margin-right:auto}
+.bless-form{padding:1.15rem;background:rgba(250,247,242,.035);border:1px solid rgba(184,145,42,.16)}
+.bless-input{border-radius:2px}
+.bless-submit{border-radius:2px}
+#blessingWall{gap:1.1rem}
+
+#back-top,#anthem-btn{bottom:max(1.4rem,calc(env(safe-area-inset-bottom) + .9rem))}
+.footer{background:linear-gradient(180deg,#e7dcc5 0%,#d8caa9 100%)}
+
+@media(max-width:768px){
+  .top-nav{background:linear-gradient(180deg,rgba(26,20,14,.9),rgba(26,20,14,.72))}
+  .top-nav.scrolled{background:rgba(26,20,14,.94)}
+  .top-nav-inner{min-height:var(--nav-h-mobile)}
+  .top-nav-links,.tab-nav{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 22px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 22px),transparent 100%)}
+  .hero{min-height:100svh;padding:3.2rem 1.2rem 4.2rem}
+  .hero-year-svg{width:min(260px,76vw)}
+  .hero-subtitle{letter-spacing:.18em;line-height:1.8;margin-bottom:1.8rem}
+  .hero-tagline{font-size:.95rem;line-height:2}
+  .stats-section{padding:3rem 1rem}
+  .stats-grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important}
+  .stat-item{min-height:118px;padding:1.25rem .45rem;flex-direction:column;gap:.35rem}
+  .stat-num{font-size:2.25rem}
+  .stat-unit{font-size:.68rem;letter-spacing:.12em;margin-top:0}
+  .stat-label{font-size:.72rem;letter-spacing:.05em}
+  .intro-strip{padding:3rem 1.25rem}
+  .intro-line{letter-spacing:.06em;line-height:1.9}
+  #tab-history{padding-top:3.2rem}
+  #tab-blessing{padding-top:3.6rem}
+  .tab-btn{min-height:50px;padding:.9rem .95rem}
+  .tab-nav::after{left:1rem;right:1rem}
+  .timeline-content{padding:1.25rem 1rem}
+  .map-wrap{padding:.65rem;margin:0 -.15rem}
+  .map-hint{font-size:.78rem;line-height:1.8}
+  .bless-form{padding:.9rem}
+  #back-top,#anthem-btn{width:40px;height:40px;bottom:max(1rem,calc(env(safe-area-inset-bottom) + .75rem))}
+  #back-top{right:1rem}
+  #anthem-btn{left:1rem}
+  .footer{padding:3rem 1.25rem 2.2rem}
+}
+
+/* Hero fallback: external resources should never keep the first viewport blank. */
+.hero-content>*{animation:heroRise .95s cubic-bezier(.22,.61,.36,1) 3.05s forwards}
+.hero-content>:nth-child(1){animation-delay:3.05s}
+.hero-content>:nth-child(2){animation-delay:3.22s}
+.hero-content>:nth-child(3){animation-delay:3.4s}
+.hero-content>:nth-child(4){animation-delay:3.55s}
+.hero-content>:nth-child(5){animation-delay:3.7s}
+.hero-year-svg path{animation:strokeDraw .5s cubic-bezier(.55,.06,.45,.95) 3.4s forwards}
+body.loaded .hero-content>*{animation:heroRise .95s cubic-bezier(.22,.61,.36,1) forwards}
+body.loaded .hero-content>:nth-child(1){animation-delay:.05s}
+body.loaded .hero-content>:nth-child(2){animation-delay:.22s}
+body.loaded .hero-content>:nth-child(3){animation-delay:.4s}
+body.loaded .hero-content>:nth-child(4){animation-delay:.55s}
+body.loaded .hero-content>:nth-child(5){animation-delay:.7s}
+body.loaded .hero-year-svg path{animation:strokeDraw .5s cubic-bezier(.55,.06,.45,.95) forwards}
+body.loaded .hero-year-svg path:nth-of-type(1){animation-delay:.4s}
+body.loaded .hero-year-svg path:nth-of-type(2){animation-delay:.62s}
+body.loaded .hero-year-svg path:nth-of-type(3){animation-delay:.84s}
+body.loaded .hero-year-svg path:nth-of-type(4){animation-delay:1.06s}
+body.loaded .hero-year-svg path:nth-of-type(5){animation-delay:1.34s}
+body.loaded .hero-year-svg path:nth-of-type(6){animation-delay:1.56s}
