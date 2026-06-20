@@ -1183,7 +1183,8 @@ body{background:linear-gradient(180deg,#1a140e 0 100svh,var(--cream) 100svh)}
 #preloader.hide{pointer-events:none}
 #preloader{animation:preloaderAutoExit .7s ease 2.8s forwards}
 #preloader.hide{animation:none}
-@keyframes preloaderAutoExit{99%{opacity:0;visibility:hidden;pointer-events:none}100%{opacity:0;visibility:hidden;pointer-events:none;z-index:-1}}.top-nav{isolation:isolate}
+@keyframes preloaderAutoExit{99%{opacity:0;visibility:hidden;pointer-events:none}100%{opacity:0;visibility:hidden;pointer-events:none;z-index:-1}}
+.top-nav{isolation:isolate}
 .top-nav::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(184,145,42,.35),transparent);opacity:0;transition:opacity .35s ease;pointer-events:none}
 .top-nav.scrolled::after{opacity:1}
 .top-nav-links,.tab-nav{overscroll-behavior-x:contain}
@@ -1271,3 +1272,106 @@ body.loaded .hero-year-svg path:nth-of-type(3){animation-delay:.84s}
 body.loaded .hero-year-svg path:nth-of-type(4){animation-delay:1.06s}
 body.loaded .hero-year-svg path:nth-of-type(5){animation-delay:1.34s}
 body.loaded .hero-year-svg path:nth-of-type(6){animation-delay:1.56s}
+
+/* ══════════ AESTHETIC PASS：沉穩、真實、紀念感 ══════════ */
+.hero-bg{overflow:hidden}
+.hero-bg::before{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(26,20,14,.96) 0%,rgba(26,20,14,.72) 42%,rgba(26,20,14,.96) 100%),
+    linear-gradient(180deg,rgba(26,20,14,.1) 0%,rgba(26,20,14,.9) 100%),
+    url('../assets/img/fortress.webp') center 42% / cover no-repeat;
+  opacity:.2;filter:saturate(.75) contrast(1.08);
+  transform:scale(1.04);
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(115deg,transparent 0 46%,rgba(212,168,67,.1) 46.15%,transparent 46.7% 100%),
+    linear-gradient(245deg,transparent 0 52%,rgba(212,168,67,.065) 52.15%,transparent 52.7% 100%);
+  opacity:.55;pointer-events:none;
+}
+.hero-content{filter:drop-shadow(0 20px 42px rgba(0,0,0,.22))}
+.hero-year-svg{filter:drop-shadow(0 0 18px rgba(212,168,67,.38)) drop-shadow(0 18px 26px rgba(0,0,0,.28))}
+.hero-title{font-size:clamp(1.9rem,4.2vw,3.2rem);text-shadow:0 8px 28px rgba(0,0,0,.55)}
+.hero-subtitle{color:rgba(250,247,242,.58)}
+.hero-tagline{color:rgba(250,247,242,.75);text-shadow:0 10px 28px rgba(0,0,0,.5)}
+.hero-divider{width:108px;background:linear-gradient(90deg,transparent,rgba(212,168,67,.88),transparent)}
+.hero-mountain{filter:drop-shadow(0 -10px 24px rgba(0,0,0,.18))}
+
+.stats-section{position:relative;overflow:hidden}
+.stats-section::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(212,168,67,.06),transparent);
+  pointer-events:none;
+}
+.stats-grid{position:relative;z-index:1;background:rgba(184,145,42,.22)}
+.stat-item{background:linear-gradient(180deg,rgba(250,247,242,.035),rgba(250,247,242,.01));border:0}
+.stat-label{color:rgba(250,247,242,.68)}
+.stat-unit{color:rgba(212,168,67,.62)}
+
+.intro-strip{box-shadow:inset 0 1px rgba(255,255,255,.48),inset 0 -1px rgba(44,36,22,.08)}
+.intro-strip-inner::before,.intro-strip-inner::after{
+  content:'';display:block;width:min(180px,46vw);height:1px;margin:0 auto 1.75rem;
+  background:linear-gradient(90deg,transparent,rgba(184,145,42,.45),transparent);
+}
+.intro-strip-inner::after{margin:1.75rem auto 0}
+.intro-line{letter-spacing:.1em}
+.intro-sub{color:rgba(92,78,58,.78)}
+
+.tab-nav{box-shadow:0 18px 42px rgba(0,0,0,.36),inset 0 1px rgba(255,255,255,.045)}
+.tab-btn{position:relative;transition:color .25s ease,background .25s ease}
+.tab-btn:hover{background:rgba(250,247,242,.035)}
+.tab-btn.active{background:linear-gradient(180deg,rgba(212,168,67,.08),rgba(212,168,67,.025))}
+
+#tab-history .section-heading,#tab-blessing .blessing-main{text-shadow:0 14px 36px rgba(0,0,0,.42)}
+.timeline-content{
+  border-color:rgba(212,168,67,.12);
+  background:linear-gradient(145deg,rgba(250,247,242,.06),rgba(250,247,242,.025));
+  box-shadow:inset 0 1px rgba(255,255,255,.035);
+}
+.timeline-content::after{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:linear-gradient(180deg,rgba(212,168,67,.75),rgba(212,168,67,.05));
+  opacity:.28;pointer-events:none;
+}
+.timeline-content h3{color:#fff6df}
+.timeline-content p{color:rgba(250,247,242,.62)}
+.timeline-year{letter-spacing:.04em}
+
+.map-wrap{
+  border-color:rgba(184,145,42,.22);
+  background:
+    linear-gradient(180deg,rgba(250,247,242,.82),rgba(237,229,208,.55)),
+    linear-gradient(135deg,rgba(184,145,42,.08),transparent 45%);
+}
+.map-viewport{box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 18px 50px rgba(44,36,22,.2)}
+.map-legend{justify-content:center}
+.legend-item{background:rgba(250,247,242,.55);border:1px solid rgba(184,145,42,.16);padding:.45rem .7rem}
+
+.blessing-main em{text-shadow:0 0 22px rgba(212,168,67,.35)}
+.blessing-body{color:rgba(250,247,242,.62)}
+.bless-form{box-shadow:inset 0 1px rgba(255,255,255,.035),0 18px 42px rgba(0,0,0,.16)}
+.bless-input{transition:border-color .25s ease,background .25s ease,box-shadow .25s ease}
+.bless-input:focus{background:rgba(250,247,242,.08);box-shadow:0 0 0 3px rgba(184,145,42,.08)}
+.bless-submit{background:linear-gradient(180deg,rgba(184,145,42,.06),rgba(184,145,42,.02))}
+.bless-card{background:linear-gradient(145deg,rgba(250,247,242,.06),rgba(250,247,242,.025));box-shadow:inset 0 1px rgba(255,255,255,.035)}
+.bless-name{color:#e4bd58}
+
+.footer{position:relative;overflow:hidden}
+.footer::before{
+  content:'';position:absolute;left:50%;top:-90px;width:min(720px,90vw);height:180px;transform:translateX(-50%);
+  background:radial-gradient(ellipse at center,rgba(184,145,42,.16),transparent 68%);
+  pointer-events:none;
+}
+.footer>*{position:relative;z-index:1}
+
+@media(max-width:768px){
+  .hero-bg::before{opacity:.14;background-position:center top}
+  .hero-title{font-size:clamp(1.55rem,8.2vw,2rem)}
+  .hero-divider{width:88px}
+  .hero-tagline{font-size:.92rem}
+  .intro-strip-inner::before,.intro-strip-inner::after{width:132px}
+  .timeline-content::after{width:1px}
+  .legend-item{font-size:.72rem}
+}
